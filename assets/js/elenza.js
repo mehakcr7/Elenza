@@ -52,7 +52,7 @@
         slide: function (event, ui) {
           $(".price-ranger .ranger-min-max-block .min").val("$" + ui.values[0]);
           $(".price-ranger .ranger-min-max-block .max").val("$" + ui.values[1]);
-        }
+        },
       });
       $(".price-ranger .ranger-min-max-block .min").val(
         "$" + $(".price-ranger #slider-range").slider("values", 0)
@@ -72,7 +72,7 @@
         testMode: true,
         onChange: function (evt) {
           alert("The selected language is: " + evt.selectedItem);
-        }
+        },
       });
     }
   }
@@ -193,7 +193,7 @@
         backSpeed: 100,
         fadeOut: true,
         loop: true,
-        strings: typedStrings.split(",")
+        strings: typedStrings.split(","),
       });
     });
   }
@@ -207,7 +207,7 @@
         $(el).css("width", percent).addClass("counted");
       },
       {
-        accY: -50
+        accY: -50,
       }
     );
   }
@@ -222,7 +222,7 @@
         });
       },
       {
-        accY: 0
+        accY: 0,
       }
     );
   }
@@ -238,10 +238,10 @@
         if (!$t.hasClass("counted")) {
           $t.addClass("counted");
           $({
-            countNum: $t.find(".count-text").text()
+            countNum: $t.find(".count-text").text(),
           }).animate(
             {
-              countNum: n
+              countNum: n,
             },
             {
               duration: r,
@@ -251,13 +251,13 @@
               },
               complete: function () {
                 $t.find(".count-text").text(this.countNum);
-              }
+              },
             }
           );
         }
       },
       {
-        accY: 0
+        accY: 0,
       }
     );
   }
@@ -298,7 +298,7 @@
       // animate
       $("html, body").animate(
         {
-          scrollTop: $(target).offset().top
+          scrollTop: $(target).offset().top,
         },
         1000
       );
@@ -312,18 +312,18 @@
       // initialize the plugin
       rules: {
         name: {
-          required: true
+          required: true,
         },
         email: {
           required: true,
-          email: true
+          email: true,
         },
         message: {
-          required: true
+          required: true,
         },
         subject: {
-          required: true
-        }
+          required: true,
+        },
       },
       submitHandler: function (form) {
         // sending value with ajax request
@@ -338,7 +338,7 @@
           }
         );
         return false;
-      }
+      },
     });
   }
 
@@ -372,10 +372,54 @@
 
             mcResp.find("p").fadeOut(10000);
           }
-        }
+        },
       });
     });
   }
+
+  //emailjs
+
+  document.addEventListener("DOMContentLoaded", function () {
+    emailjs.init("xM_zKQ35XSUqP9aiY"); // Replace with your EmailJS user ID
+
+    document
+      .querySelector(".contact__form")
+      .addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        let name = document.querySelector("input[name='name']").value.trim();
+        let email = document.querySelector("input[name='email']").value.trim();
+        let phone = document.querySelector("input[name='phone']").value.trim();
+        let service = document.querySelector(".selectpicker").value;
+        let message = document
+          .querySelector("textarea[name='message']")
+          .value.trim();
+        let resultBox = document.querySelector(".result");
+
+        if (!name || !email || !phone || !service || !message) {
+          resultBox.innerHTML =
+            "<p style='color: red;'>Please fill in all fields.</p>";
+          return;
+        }
+
+        let formData = { name, email, phone, service, message };
+
+        emailjs.send("service_ihbrm36", "template_hse98ga", formData).then(
+          function (response) {
+            console.log("SUCCESS!", response.status, response.text);
+            resultBox.innerHTML =
+              "<p style='color: green;'>Message sent successfully!</p>";
+          },
+          function (error) {
+            console.log("FAILED...", error);
+            resultBox.innerHTML =
+              "<p style='color: red;'>Failed to send message. Please try again.</p>";
+          }
+        );
+      });
+  });
+
+  //
 
   if ($(".video-popup").length) {
     $(".video-popup").magnificPopup({
@@ -384,7 +428,7 @@
       removalDelay: 160,
       preloader: true,
 
-      fixedContentPos: false
+      fixedContentPos: false,
     });
   }
 
@@ -406,8 +450,8 @@
         closeOnContentClick: true,
         closeBtnInside: false,
         gallery: {
-          enabled: true
-        }
+          enabled: true,
+        },
       });
     });
   }
@@ -514,7 +558,7 @@
       boxClass: "wow", // animated element css class (default is wow)
       animateClass: "animated", // animation css class (default is animated)
       mobile: true, // trigger animations on mobile devices (default is true)
-      live: true // act on asynchronously loaded content (default is true)
+      live: true, // act on asynchronously loaded content (default is true)
     });
     wow.init();
   }
@@ -615,8 +659,8 @@
       connect: true,
       range: {
         min: 10,
-        max: 200
-      }
+        max: 200,
+      },
     });
 
     var limitFieldMin = document.getElementById("min-value-rangeslider");
@@ -656,8 +700,8 @@
         loop: true,
         navText: [
           '<i class="icon-left-arrow" aria-hidden="true"></i>',
-          '<i class="icon-right-arrow" aria-hidden="true"></i>'
-        ]
+          '<i class="icon-right-arrow" aria-hidden="true"></i>',
+        ],
       })
       .on("changed.owl.carousel", syncPosition);
 
@@ -672,10 +716,10 @@
         nav: true,
         navText: [
           '<i class="icon-left-arrow" aria-hidden="true"></i>',
-          '<i class="icon-right-arrow" aria-hidden="true"></i>'
+          '<i class="icon-right-arrow" aria-hidden="true"></i>',
         ],
         smartSpeed: 700,
-        slideBy: 3
+        slideBy: 3,
       })
       .on("changed.owl.carousel", syncPosition2);
 
@@ -729,7 +773,7 @@
   function projectMasonaryLayout() {
     if ($(".masonary-layout").length) {
       $(".masonary-layout").isotope({
-        layoutMode: "masonry"
+        layoutMode: "masonry",
       });
     }
     if ($(".post-filter").length) {
@@ -745,8 +789,8 @@
             animationOptions: {
               duration: 500,
               easing: "linear",
-              queue: false
-            }
+              queue: false,
+            },
           });
           return false;
         });
@@ -806,7 +850,7 @@
       prevArrow:
         "<div class='prev-btn'><span class='fa fa-angle-up'></span></div>",
       nextArrow:
-        "<div class='next-btn'><span class='fa fa-angle-down'></span></div>"
+        "<div class='next-btn'><span class='fa fa-angle-down'></span></div>",
     });
   }
 
@@ -835,7 +879,7 @@
           .stop()
           .animate(
             {
-              scrollTop: $(target.attr("href")).offset().top - headerH + "px"
+              scrollTop: $(target.attr("href")).offset().top - headerH + "px",
             },
             1200,
             "easeInOutExpo"
@@ -897,14 +941,14 @@
 
     if ($(".curved-circle--item").length) {
       $(".curved-circle--item").circleType({
-        radius: 80
+        radius: 80,
       });
     }
 
     //Jquery Spinner / Quantity Spinner
     if ($(".quantity-spinner").length) {
       $("input.quantity-spinner").TouchSpin({
-        verticalbuttons: true
+        verticalbuttons: true,
       });
     }
 
@@ -916,8 +960,8 @@
         animationOptions: {
           duration: 500,
           easing: "linear",
-          queue: false
-        }
+          queue: false,
+        },
       });
       // on click filter links
       postFilterList.on("click", function () {
@@ -931,8 +975,8 @@
           animationOptions: {
             duration: 500,
             easing: "linear",
-            queue: false
-          }
+            queue: false,
+          },
         });
         return false;
       });
@@ -963,7 +1007,7 @@
         auto: "true",
         speed: "1000",
         pagerCustom:
-          ".listing-details__gallery .slider-pager .listing-details__thumb-box"
+          ".listing-details__gallery .slider-pager .listing-details__thumb-box",
       });
     }
 
@@ -976,8 +1020,8 @@
         watchSlidesProgress: true,
         loop: true,
         autoplay: {
-          delay: 5000
-        }
+          delay: 5000,
+        },
       });
 
       let testimonialsCarousel = new Swiper("#testimonials-one__carousel", {
@@ -987,16 +1031,16 @@
         mousewheel: true,
         slidesPerView: 1,
         autoplay: {
-          delay: 5000
+          delay: 5000,
         },
         thumbs: {
-          swiper: testimonialsThumb
+          swiper: testimonialsThumb,
         },
         pagination: {
           el: "#testimonials-one__carousel-pagination",
           type: "bullets",
-          clickable: true
-        }
+          clickable: true,
+        },
       });
     }
 
@@ -1020,7 +1064,7 @@
             onChange: function (data) {
               let owlTo = data.from - 1;
               elm.trigger("to.owl.carousel", [owlTo, 500, true]);
-            }
+            },
           });
 
           range.find(".irs-bar").css("width", dragLength + "%");
@@ -1039,7 +1083,7 @@
           var curItem = event.item.index + 1;
           var dragLength = 100 / (itemCount / curItem);
           range.find("input").data("ionRangeSlider").update({
-            from: curItem
+            from: curItem,
           });
           range.find(".irs-bar").css("width", dragLength + "%");
           range.find(".irs-handle.single").css("left", dragLength + "%");
@@ -1057,7 +1101,7 @@
             .data("ionRangeSlider")
             .update({
               max: itemCount - (size - 1),
-              from: curItem
+              from: curItem,
             });
           range.find(".irs-bar").css("width", dragLength + "%");
           range.find(".irs-handle.single").css("left", dragLength + "%");

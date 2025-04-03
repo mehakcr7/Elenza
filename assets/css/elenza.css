@@ -5113,7 +5113,7 @@ ul {
   position: relative;
   -webkit-transition: 500ms;
   transition: 500ms;
-  opacity: 0.2;
+  opacity: 0.5;
 }
 
 .brand-one__single:hover .brand-one__img>img {
