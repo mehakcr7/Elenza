@@ -16056,6 +16056,7 @@ body.boxed-wrapper {
 .packages-section {
   background: linear-gradient(180deg, #0f1317 0%, #131a22 100%);
   padding: 100px 0;
+  /* height: 1300px; */
   position: relative;
   overflow: hidden;
 }
