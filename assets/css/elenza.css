@@ -3086,11 +3086,7 @@ ul {
   z-index: -1;
 }
 
-.services-one__single:hover .services-one__content:before {
-  transform: scaleX(1) rotateX(0deg);
-  transition: all 0.4s linear;
-  opacity: 1;
-}
+
 
 .services-one__icon {
   position: relative;
@@ -3125,6 +3121,7 @@ ul {
 .services-one__title a {
   color: var(--pitoon-black);
   -webkit-transition: all 500ms ease;
+  cursor: none;
   transition: all 500ms ease;
 }
 
@@ -3132,26 +3129,8 @@ ul {
   color: var(--pitoon-white);
 }
 
-.services-one__plus {
-  position: absolute;
-  left: 40px;
-  bottom: -16px;
-  z-index: 2;
-}
 
-.services-one__plus a {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 45px;
-  height: 45px;
-  font-size: 12px;
-  color: var(--pitoon-black);
-  background-color: var(--pitoon-white);
-  -webkit-transition: all 500ms ease;
-  transition: all 500ms ease;
-}
+
 
 .services-one__single:hover .services-one__plus a {
   background-color: var(--pitoon-base);
@@ -16446,17 +16425,17 @@ body.boxed-wrapper {
   gap: 5px;
 }
 
-.icon {
+.package_icon {
   color: rgba(255, 255, 255, 0.3);
   font-size: 12px;
   animation: pulse 2s infinite;
 }
 
-.icon:nth-child(2) {
+.package_icon:nth-child(2) {
   animation-delay: 0.3s;
 }
 
-.icon:nth-child(3) {
+.package_icon:nth-child(3) {
   animation-delay: 0.6s;
 }
 
