@@ -17017,3 +17017,20 @@ body.boxed-wrapper {
 ::-webkit-scrollbar-thumb:hover {
     background: linear-gradient(135deg, #44a08d, #4ecdc4);
 }
+
+/* background image main */
+
+@media (max-width: 426px) {
+  .main-slider__bg,
+  .main-slider__bg-two {
+    background-size: 218% 75%;
+    background-position: left center;
+  }
+}
+@media (max-width: 321px) {
+  .main-slider__bg,
+  .main-slider__bg-two {
+    background-size: 220% 77%;
+    background-position: left center;
+  }
+}
