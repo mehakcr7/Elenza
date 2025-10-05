@@ -17035,13 +17035,7 @@ body.boxed-wrapper {
   }
 }
 
-@media (max-width: 426px) {
-  .main-slider__bg,
-  .main-slider__bg-two {
-    background-size: 218% 75%;
-    background-position: left center;
-  }
-}
+
 
 @media (max-width: 1025px) {
   
